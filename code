@@ -1,0 +1,20 @@
+# importing pandas package
+import pandas as pd
+
+# making data frame from an excel file
+df1 = pd.read_excel("C:/projects/data.xlsx")
+
+# sorting by Name
+df1.sort_values("Name", inplace=True)
+
+# dropping ALL duplicate values
+df1.drop_duplicates(subset="Name",
+					keep=False, inplace=True)
+#displaying all rows
+pd.set_option('display max_rows', None)
+
+# writing data to excel file
+df1.to_excel("C:/projects/data_noduplicates.xlsx")
+
+#displaying data in IDE
+print(df1)
